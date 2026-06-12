@@ -1510,7 +1510,8 @@ section { position: relative; }
       <h2 class="section-title" style="text-align:center">Get Yours Now</h2>
     </div>
 
-    <form class="order-form reveal" id="orderForm" action="https://formspree.io/f/xgoblrqq" method="POST">
+    <form class="order-form reveal" id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="0bc05d98-f787-4821-9a9a-efa30dbaa96b">
 
       <!-- Selected products preview (shown when wallets are selected) -->
       <div class="selected-products-list" id="selectedList" style="display:none">
@@ -1806,8 +1807,9 @@ document.getElementById('orderForm').addEventListener('submit', (e) => {
   submitBtn.textContent = 'SENDING...';
   submitBtn.disabled = true;
 
-  // Submit to Formspree
-  fetch('https://formspree.io/f/xgoblrqq', {
+  // Submit to Web3Forms
+  formData.append('access_key', '0bc05d98-f787-4821-9a9a-efa30dbaa96b');
+  fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     body: formData,
     headers: { 'Accept': 'application/json' }
