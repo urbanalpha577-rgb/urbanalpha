@@ -1808,13 +1808,13 @@ document.getElementById('orderForm').addEventListener('submit', (e) => {
   submitBtn.disabled = true;
 
   // Submit to Web3Forms
-  formData.append('access_key', '0bc05d98-f787-4821-9a9a-efa30dbaa96b');
   fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     body: formData,
     headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
+  }).then(response => response.json())
+  .then(data => {
+    if (data.success) {
       form.style.display = 'none';
       document.getElementById('orderSuccess').classList.add('show');
     } else {
