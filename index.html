@@ -1735,6 +1735,7 @@ function toggleProduct(card) {
   } else {
     selectedProducts.push({ name, img, qty: 1 });
     card.classList.add('selected');
+    fbq('track', 'AddToCart', { content_name: name, content_type: 'product', value: 1000, currency: 'PKR' });
   }
 
   updateUI();
@@ -1832,6 +1833,8 @@ document.getElementById('orderForm').addEventListener('submit', (e) => {
   }).then(response => response.json())
   .then(data => {
     if (data.success) {
+      const total = selectedProducts.reduce((sum, p) => sum + (p.qty * 1000), 0);
+      fbq('track', 'Purchase', { value: total, currency: 'PKR', content_type: 'product', num_items: selectedProducts.length });
       form.style.display = 'none';
       document.getElementById('orderSuccess').classList.add('show');
     } else {
@@ -1844,6 +1847,12 @@ document.getElementById('orderForm').addEventListener('submit', (e) => {
     submitBtn.disabled = false;
     alert('Network error. Please check your connection and try again.');
   });
+});
+
+// InitiateCheckout when clicking Proceed to Order
+document.getElementById('proceedBtn').addEventListener('click', () => {
+  const total = selectedProducts.reduce((sum, p) => sum + (p.qty * 1000), 0);
+  fbq('track', 'InitiateCheckout', { value: total, currency: 'PKR', num_items: selectedProducts.length });
 });
 
 // Smooth scroll for anchor links
