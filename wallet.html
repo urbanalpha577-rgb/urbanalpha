@@ -1379,7 +1379,7 @@ section { position: relative; }
     </h1>
     <p class="hero-tagline">Style That Dominates</p>
     <div class="hero-price-tag">
-      <span class="hero-price">₨ 1,000</span>
+      <span class="hero-price">₨ 1,200</span>
       <div class="hero-price-info">
         <span>Starting From</span>
         <span class="free-ship">Free Shipping</span>
@@ -1401,13 +1401,13 @@ section { position: relative; }
   <div class="products-header reveal">
     <div class="section-label">The Collection</div>
     <h2 class="section-title">Choose Your Wallet</h2>
-    <p class="products-subtitle">Tap to select one or more wallets. Starting from ₨ 1,000 with free shipping.</p>
+    <p class="products-subtitle">Tap to select one or more wallets. Starting from ₨ 1,200 with free shipping.</p>
   </div>
   <div class="products-grid">
 
     <div class="product-card reveal reveal-delay-1"
          data-name="Grey Diamond"
-         data-price="1000"
+         data-price="1200"
          data-img="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18 (2).jpeg">
       <div class="product-card-img">
         <img src="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18 (2).jpeg" alt="Grey Diamond Wallet" loading="lazy">
@@ -1417,13 +1417,13 @@ section { position: relative; }
       </div>
       <div class="product-card-info">
         <span class="product-card-name">Grey Diamond</span>
-        <span class="product-card-price">₨ 1,000</span>
+        <span class="product-card-price">₨ 1,200</span>
       </div>
     </div>
 
     <div class="product-card reveal reveal-delay-2"
          data-name="Brown Monogram"
-         data-price="1000"
+         data-price="1200"
          data-img="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.19.54.jpeg">
       <div class="product-card-img">
         <img src="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.19.54.jpeg" alt="Brown Monogram Wallet" loading="lazy">
@@ -1433,7 +1433,7 @@ section { position: relative; }
       </div>
       <div class="product-card-info">
         <span class="product-card-name">Brown Monogram</span>
-        <span class="product-card-price">₨ 1,000</span>
+        <span class="product-card-price">₨ 1,200</span>
       </div>
     </div>
 
@@ -1745,10 +1745,10 @@ section { position: relative; }
 <section class="price-banner">
   <div style="overflow:hidden">
     <div class="price-marquee">
-      <span>₨ 1,000</span><span class="dot"></span>
+      <span>₨ 1,200</span><span class="dot"></span>
       <span>FREE SHIPPING</span><span class="dot"></span>
       <span>CASH ON DELIVERY</span><span class="dot"></span>
-      <span>₨ 1,000</span><span class="dot"></span>
+      <span>₨ 1,200</span><span class="dot"></span>
       <span>FREE SHIPPING</span><span class="dot"></span>
       <span>CASH ON DELIVERY</span><span class="dot"></span>
     </div>
@@ -1811,7 +1811,7 @@ section { position: relative; }
 
       <div class="order-total-bar" id="orderTotalBar" style="display:none">
         <span class="order-total-label">Order Total</span>
-        <span class="order-total-price" id="totalPrice">₨ 1,000</span>
+        <span class="order-total-price" id="totalPrice">₨ 1,200</span>
       </div>
       <input type="hidden" id="orderDetails" name="orderDetails" value="">
 
@@ -1942,7 +1942,7 @@ function renderSelectedItems() {
         <span>${p.qty}</span>
         <button type="button" data-name="${p.name}" data-action="plus">+</button>
       </div>
-      <span class="selected-item-price">₨ ${(p.qty * (p.price || 1000)).toLocaleString()}</span>
+      <span class="selected-item-price">₨ ${(p.qty * (p.price || 1200)).toLocaleString()}</span>
       <button type="button" class="selected-item-remove" data-name="${p.name}" title="Remove">&times;</button>
     `;
     selectedItems.appendChild(item);
@@ -2004,7 +2004,7 @@ function changeQty(name, action) {
 }
 
 function updateTotal() {
-  const total = selectedProducts.reduce((sum, p) => sum + (p.qty * (p.price || 1000)), 0);
+  const total = selectedProducts.reduce((sum, p) => sum + (p.qty * (p.price || 1200)), 0);
   totalPrice.textContent = '₨ ' + (total || 0).toLocaleString();
 }
 
