@@ -604,6 +604,68 @@ section { position: relative; }
   background: var(--gold);
   color: var(--black);
 }
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+.lightbox-nav:hover { background: var(--gold); color: var(--black); }
+.lightbox-nav.prev { left: 16px; }
+.lightbox-nav.next { right: 16px; }
+.lightbox.has-gallery .lightbox-nav { display: flex; }
+.lightbox-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 8px;
+  z-index: 2;
+}
+.lightbox.has-gallery .lightbox-dots { display: flex; }
+.lightbox-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.lightbox-dot.active { background: var(--gold); transform: scale(1.3); }
+.gallery-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.7);
+  color: var(--gold);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 2;
+  border: 1px solid rgba(201,168,76,0.2);
+  transition: all 0.3s ease;
+}
+.gallery-badge:hover { background: rgba(201,168,76,0.9); color: #000; }
+.gallery-badge svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
 
 /* ===================== FEATURES ===================== */
 .features {
@@ -1305,7 +1367,7 @@ section { position: relative; }
 <!-- Hero -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="Wallet_1000RS/714715282_122139681561078044_5041907875193813716_n.jpg" alt="Urban Alpha Premium Wallet">
+    <img src="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.19.54.jpeg" alt="Urban Alpha Premium Wallet">
     <div class="hero-diagonal"></div>
     <div class="hero-diagonal"></div>
   </div>
@@ -1319,7 +1381,7 @@ section { position: relative; }
     <div class="hero-price-tag">
       <span class="hero-price">₨ 1,000</span>
       <div class="hero-price-info">
-        <span>Per Wallet</span>
+        <span>Starting From</span>
         <span class="free-ship">Free Shipping</span>
       </div>
     </div>
@@ -1339,42 +1401,13 @@ section { position: relative; }
   <div class="products-header reveal">
     <div class="section-label">The Collection</div>
     <h2 class="section-title">Choose Your Wallet</h2>
-    <p class="products-subtitle">Tap to select one or more wallets. Each one is ₨ 1,000 with free shipping.</p>
+    <p class="products-subtitle">Tap to select one or more wallets. Starting from ₨ 1,000 with free shipping.</p>
   </div>
   <div class="products-grid">
 
     <div class="product-card reveal reveal-delay-1"
-         data-name="Classic Black Leather"
-         data-img="Wallet_1000RS/714715282_122139681561078044_5041907875193813716_n.jpg">
-      <div class="product-card-img">
-        <img src="Wallet_1000RS/714715282_122139681561078044_5041907875193813716_n.jpg" alt="Classic Black Leather Wallet" loading="lazy">
-        <div class="product-check">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-      </div>
-      <div class="product-card-info">
-        <span class="product-card-name">Classic Black Leather</span>
-        <span class="product-card-price">₨ 1,000</span>
-      </div>
-    </div>
-
-    <div class="product-card reveal reveal-delay-2"
-         data-name="Brown M Emblem"
-         data-img="Wallet_1000RS/717264628_122139679929078044_8213571750206354525_n.jpg">
-      <div class="product-card-img">
-        <img src="Wallet_1000RS/717264628_122139679929078044_8213571750206354525_n.jpg" alt="Brown M Emblem Wallet" loading="lazy">
-        <div class="product-check">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-      </div>
-      <div class="product-card-info">
-        <span class="product-card-name">Brown M Emblem</span>
-        <span class="product-card-price">₨ 1,000</span>
-      </div>
-    </div>
-
-    <div class="product-card reveal reveal-delay-3"
          data-name="Grey Diamond"
+         data-price="1000"
          data-img="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18 (2).jpeg">
       <div class="product-card-img">
         <img src="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18 (2).jpeg" alt="Grey Diamond Wallet" loading="lazy">
@@ -1388,38 +1421,9 @@ section { position: relative; }
       </div>
     </div>
 
-    <div class="product-card reveal reveal-delay-4"
-         data-name="Tan Diamond"
-         data-img="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18 2.jpeg">
-      <div class="product-card-img">
-        <img src="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18 2.jpeg" alt="Tan Diamond Wallet" loading="lazy">
-        <div class="product-check">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-      </div>
-      <div class="product-card-info">
-        <span class="product-card-name">Tan Diamond</span>
-        <span class="product-card-price">₨ 1,000</span>
-      </div>
-    </div>
-
-    <div class="product-card reveal reveal-delay-5"
-         data-name="Black Diamond"
-         data-img="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18.jpeg">
-      <div class="product-card-img">
-        <img src="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.04.18.jpeg" alt="Black Diamond Wallet" loading="lazy">
-        <div class="product-check">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-      </div>
-      <div class="product-card-info">
-        <span class="product-card-name">Black Diamond</span>
-        <span class="product-card-price">₨ 1,000</span>
-      </div>
-    </div>
-
-    <div class="product-card reveal reveal-delay-6"
+    <div class="product-card reveal reveal-delay-2"
          data-name="Brown Monogram"
+         data-price="1000"
          data-img="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.19.54.jpeg">
       <div class="product-card-img">
         <img src="Wallet_1000RS/WhatsApp Image 2026-06-11 at 17.19.54.jpeg" alt="Brown Monogram Wallet" loading="lazy">
@@ -1430,6 +1434,257 @@ section { position: relative; }
       <div class="product-card-info">
         <span class="product-card-name">Brown Monogram</span>
         <span class="product-card-price">₨ 1,000</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-3"
+         data-name="Black Checkered Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/black_checkered_long.jpg"
+         data-gallery='["Wallet_1200RS/715494417_122139681027078044_6538360948381408306_n.jpg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/black_checkered_long.jpg" alt="Black Checkered Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Black Checkered Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-4"
+         data-name="Brown Checkered Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/brown_checkered_long.jpg">
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/brown_checkered_long.jpg" alt="Brown Checkered Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Brown Checkered Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-5"
+         data-name="Tan Pebbled Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/tan_textured_long.jpg">
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/tan_textured_long.jpg" alt="Tan Pebbled Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Tan Pebbled Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-6"
+         data-name="Blue Pebbled Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/navy_blue_long.jpg">
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/navy_blue_long.jpg" alt="Blue Pebbled Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Blue Pebbled Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-1"
+         data-name="Black Pebbled Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/black_textured_long.jpg">
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/black_textured_long.jpg" alt="Black Pebbled Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Black Pebbled Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-2"
+         data-name="Brown Classic Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/brown_classic_long_1.jpg"
+         data-gallery='["Wallet_1500RS/brown_classic_long_2.jpg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/brown_classic_long_1.jpg" alt="Brown Classic Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Brown Classic Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-3"
+         data-name="Black Balisi Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/black_balisi_long_1.jpeg"
+         data-gallery='["Wallet_1500RS/black_balisi_long_2.jpeg","Wallet_1500RS/black_balisi_long_3.jpeg","Wallet_1500RS/black_balisi_long_4.jpeg","Wallet_1500RS/black_balisi_long_5.jpeg","Wallet_1500RS/black_balisi_long_6.jpeg","Wallet_1500RS/black_balisi_long_7.jpeg","Wallet_1500RS/black_balisi_long_8.jpeg","Wallet_1500RS/black_balisi_long_9.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/black_balisi_long_1.jpeg" alt="Black Balisi Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Black Balisi Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-4"
+         data-name="Tan Balisi Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/tan_balisi_long_1.jpeg"
+         data-gallery='["Wallet_1500RS/tan_balisi_long_2.jpeg","Wallet_1500RS/tan_balisi_long_3.jpeg","Wallet_1500RS/tan_balisi_long_4.jpeg","Wallet_1500RS/tan_balisi_long_5.jpeg","Wallet_1500RS/tan_balisi_long_6.jpeg","Wallet_1500RS/tan_balisi_long_7.jpeg","Wallet_1500RS/tan_balisi_long_8.jpeg","Wallet_1500RS/tan_balisi_long_9.jpeg","Wallet_1500RS/tan_balisi_long_10.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/tan_balisi_long_1.jpeg" alt="Tan Balisi Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Tan Balisi Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-5"
+         data-name="Dark Brown Balisi Long"
+         data-price="1500"
+         data-img="Wallet_1500RS/dark_brown_balisi_long_1.jpeg"
+         data-gallery='["Wallet_1500RS/dark_brown_balisi_long_2.jpeg","Wallet_1500RS/dark_brown_balisi_long_3.jpeg","Wallet_1500RS/dark_brown_balisi_long_4.jpeg","Wallet_1500RS/dark_brown_balisi_long_5.jpeg","Wallet_1500RS/dark_brown_balisi_long_6.jpeg","Wallet_1500RS/dark_brown_balisi_long_7.jpeg","Wallet_1500RS/dark_brown_balisi_long_8.jpeg","Wallet_1500RS/dark_brown_balisi_long_9.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1500RS/dark_brown_balisi_long_1.jpeg" alt="Dark Brown Balisi Long Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Dark Brown Balisi Long</span>
+        <span class="product-card-price">₨ 1,500</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-6"
+         data-name="Black Diagonal Stitch"
+         data-price="1200"
+         data-img="Wallet_1200RS/black_diagonal_1.jpeg"
+         data-gallery='["Wallet_1200RS/black_diagonal_2.jpeg","Wallet_1200RS/black_diagonal_3.jpeg","Wallet_1200RS/black_diagonal_4.jpeg","Wallet_1200RS/black_diagonal_5.jpeg","Wallet_1200RS/black_diagonal_6.jpeg","Wallet_1200RS/black_diagonal_7.jpeg","Wallet_1200RS/black_diagonal_8.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1200RS/black_diagonal_1.jpeg" alt="Black Diagonal Stitch Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Black Diagonal Stitch</span>
+        <span class="product-card-price">₨ 1,200</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-1"
+         data-name="Black Tan Accent"
+         data-price="1200"
+         data-img="Wallet_1200RS/black_tan_accent_1.jpeg"
+         data-gallery='["Wallet_1200RS/black_tan_accent_2.jpeg","Wallet_1200RS/black_tan_accent_3.jpeg","Wallet_1200RS/black_tan_accent_4.jpeg","Wallet_1200RS/black_tan_accent_5.jpeg","Wallet_1200RS/black_tan_accent_6.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1200RS/black_tan_accent_1.jpeg" alt="Black Tan Accent Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Black Tan Accent</span>
+        <span class="product-card-price">₨ 1,200</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-2"
+         data-name="Brown Diagonal Stitch"
+         data-price="1200"
+         data-img="Wallet_1200RS/brown_diagonal_1.jpeg"
+         data-gallery='["Wallet_1200RS/brown_diagonal_2.jpeg","Wallet_1200RS/brown_diagonal_3.jpeg","Wallet_1200RS/brown_diagonal_4.jpeg","Wallet_1200RS/brown_diagonal_5.jpeg","Wallet_1200RS/brown_diagonal_6.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1200RS/brown_diagonal_1.jpeg" alt="Brown Diagonal Stitch Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Brown Diagonal Stitch</span>
+        <span class="product-card-price">₨ 1,200</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-3"
+         data-name="Brown Tan Accent"
+         data-price="1200"
+         data-img="Wallet_1200RS/brown_tan_accent_1.jpeg"
+         data-gallery='["Wallet_1200RS/brown_tan_accent_2.jpeg","Wallet_1200RS/brown_tan_accent_3.jpeg","Wallet_1200RS/brown_tan_accent_4.jpeg","Wallet_1200RS/brown_tan_accent_5.jpeg","Wallet_1200RS/brown_tan_accent_6.jpeg","Wallet_1200RS/brown_tan_accent_7.jpeg","Wallet_1200RS/brown_tan_accent_8.jpeg","Wallet_1200RS/brown_tan_accent_9.jpeg","Wallet_1200RS/brown_tan_accent_10.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1200RS/brown_tan_accent_1.jpeg" alt="Brown Tan Accent Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Brown Tan Accent</span>
+        <span class="product-card-price">₨ 1,200</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-4"
+         data-name="Black Monogram"
+         data-price="1200"
+         data-img="Wallet_1200RS/black_monogram_1.jpeg"
+         data-gallery='["Wallet_1200RS/black_monogram_2.jpeg","Wallet_1200RS/black_monogram_3.jpeg","Wallet_1200RS/black_monogram_4.jpeg","Wallet_1200RS/black_monogram_5.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1200RS/black_monogram_1.jpeg" alt="Black Monogram Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Black Monogram</span>
+        <span class="product-card-price">₨ 1,200</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-5"
+         data-name="Brown Monogram Boweisi"
+         data-price="1200"
+         data-img="Wallet_1200RS/brown_monogram_1.jpeg"
+         data-gallery='["Wallet_1200RS/brown_monogram_2.jpeg"]'>
+      <div class="product-card-img">
+        <img src="Wallet_1200RS/brown_monogram_1.jpeg" alt="Brown Monogram Boweisi Wallet" loading="lazy">
+        <div class="product-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div class="product-card-info">
+        <span class="product-card-name">Brown Monogram Boweisi</span>
+        <span class="product-card-price">₨ 1,200</span>
       </div>
     </div>
 
@@ -1446,7 +1701,10 @@ section { position: relative; }
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close">&times;</button>
+  <button class="lightbox-nav prev" id="lightboxPrev">&#8249;</button>
   <img src="" alt="Wallet preview" id="lightbox-img">
+  <button class="lightbox-nav next" id="lightboxNext">&#8250;</button>
+  <div class="lightbox-dots" id="lightboxDots"></div>
 </div>
 
 <!-- Features -->
@@ -1684,7 +1942,7 @@ function renderSelectedItems() {
         <span>${p.qty}</span>
         <button type="button" data-name="${p.name}" data-action="plus">+</button>
       </div>
-      <span class="selected-item-price">₨ ${(p.qty * 1000).toLocaleString()}</span>
+      <span class="selected-item-price">₨ ${(p.qty * (p.price || 1000)).toLocaleString()}</span>
       <button type="button" class="selected-item-remove" data-name="${p.name}" title="Remove">&times;</button>
     `;
     selectedItems.appendChild(item);
@@ -1710,13 +1968,14 @@ function renderSelectedItems() {
 function toggleProduct(card) {
   const name = card.dataset.name;
   const img = card.dataset.img;
+  const price = parseInt(card.dataset.price) || 1000;
   const index = selectedProducts.findIndex(p => p.name === name);
 
   if (index > -1) {
     selectedProducts.splice(index, 1);
     card.classList.remove('selected');
   } else {
-    selectedProducts.push({ name, img, qty: 1 });
+    selectedProducts.push({ name, img, price, qty: 1 });
     card.classList.add('selected');
   }
 
@@ -1745,7 +2004,7 @@ function changeQty(name, action) {
 }
 
 function updateTotal() {
-  const total = selectedProducts.reduce((sum, p) => sum + (p.qty * 1000), 0);
+  const total = selectedProducts.reduce((sum, p) => sum + (p.qty * (p.price || 1000)), 0);
   totalPrice.textContent = '₨ ' + (total || 0).toLocaleString();
 }
 
@@ -1766,19 +2025,77 @@ document.getElementById('scrollToProducts').addEventListener('click', (e) => {
   document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// Lightbox
+// Lightbox & Gallery
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
-lightbox.addEventListener('click', (e) => {
-  if (e.target !== lightboxImg) {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
+const lightboxDots = document.getElementById('lightboxDots');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+let galleryImages = [];
+let galleryIndex = 0;
+
+function openGallery(images, startIndex) {
+  galleryImages = images;
+  galleryIndex = startIndex || 0;
+  lightboxImg.src = galleryImages[galleryIndex];
+  lightbox.classList.toggle('has-gallery', galleryImages.length > 1);
+  lightboxDots.innerHTML = '';
+  if (galleryImages.length > 1) {
+    galleryImages.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'lightbox-dot' + (i === galleryIndex ? ' active' : '');
+      dot.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(i); });
+      lightboxDots.appendChild(dot);
+    });
   }
-});
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function goToSlide(i) {
+  galleryIndex = i;
+  lightboxImg.src = galleryImages[galleryIndex];
+  lightboxDots.querySelectorAll('.lightbox-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  lightbox.classList.remove('has-gallery');
+  document.body.style.overflow = '';
+}
+
+lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); goToSlide((galleryIndex - 1 + galleryImages.length) % galleryImages.length); });
+lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); goToSlide((galleryIndex + 1) % galleryImages.length); });
+lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg && !e.target.closest('.lightbox-nav') && !e.target.closest('.lightbox-dot')) closeLightbox(); });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') goToSlide((galleryIndex - 1 + galleryImages.length) % galleryImages.length);
+  if (e.key === 'ArrowRight') goToSlide((galleryIndex + 1) % galleryImages.length);
+});
+
+let touchStartX = 0;
+lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
+lightbox.addEventListener('touchend', (e) => {
+  const diff = e.changedTouches[0].screenX - touchStartX;
+  if (Math.abs(diff) > 50 && galleryImages.length > 1) {
+    if (diff < 0) goToSlide((galleryIndex + 1) % galleryImages.length);
+    else goToSlide((galleryIndex - 1 + galleryImages.length) % galleryImages.length);
+  }
+}, {passive: true});
+
+document.querySelectorAll('.product-card[data-gallery]').forEach(card => {
+  const gallery = JSON.parse(card.dataset.gallery);
+  if (gallery.length > 0) {
+    const badge = document.createElement('div');
+    badge.className = 'gallery-badge';
+    badge.innerHTML = '<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>' + (gallery.length + 1);
+    badge.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const mainImg = card.dataset.img;
+      openGallery([mainImg, ...gallery], 0);
+    });
+    card.querySelector('.product-card-img').appendChild(badge);
   }
 });
 
